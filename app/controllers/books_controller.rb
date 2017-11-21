@@ -25,6 +25,23 @@ class BooksController < ApplicationController
         end
     end
 
+    # dont need to use @book because it's already referenced in before_action 
+    def edit
+    end
+
+    def update 
+        if @book.update(book_params)
+            redirect_to book_path(@book)
+        else
+            render 'edit'
+        end
+    end
+
+    def destroy 
+        @book.destroy
+        redirect_to root_path
+    end
+
     # define information user will fill out
     private 
         def book_params
