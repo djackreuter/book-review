@@ -12,12 +12,14 @@ class BooksController < ApplicationController
     end
 
 # define create and new methods for creating new book 
+# Builds out books from current user
+# replaced Book.new
     def new
-        @book = Book.new
+        @book = current_user.books.build
     end
 
     def create
-        @book = Book.new(book_params)
+        @book = current_user.books.build(book_params) 
         if @book.save
             redirect_to root_path
         else
