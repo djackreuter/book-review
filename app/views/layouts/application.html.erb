@@ -32,7 +32,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <% Category.all.each do |category| %>
-              <li>
+              <li class="<%= 'active' if params[:category] == category.name %>">
                 <%# params for book_path pass category name to url as params, used as filter for index method in books controller %>
                 <%= link_to category.name, books_path(category: category.name), class: "link" %>
               </li>
