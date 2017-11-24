@@ -28,6 +28,17 @@
         <li><%= link_to "Add Book", new_book_path %></li>
         <% end %>
         <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <% Category.all.each do |category| %>
+              <li>
+                <%# params for book_path pass category name to url as params, used as filter for index method in books controller %>
+                <%= link_to category.name, books_path(category: category.name), class: "link" %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
         
       </ul>
       <!-- right side of navbar -->
