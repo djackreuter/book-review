@@ -3,11 +3,16 @@
 <% if @books.count == 0 %>
     <h1>There are currently no books in this category</h1>
 <% else %>
-    <%# loop through and display the books %>
-    <%# book image refers to the size defined in book model %>
-    <% @books.each do |book| %>
-        <a href="/books/<%= book.id %>">
-            <%= image_tag book.book_img.url(:book_index)%>
-        </a>
-    <% end %>
+
+    <div class="row">
+        <%# loop through and display the books %>
+        <%# book image refers to the size defined in book model %>
+        <% @books.each do |book| %>
+            <div class="col-md-3">
+                <a href="/books/<%= book.id %>">
+                    <%= image_tag book.book_img.url(:book_index), class: "book" %>
+                </a>
+            </div><!-- /.col-md-3 -->
+        <% end %>
+    </div><!-- /.row -->
 <% end %>
