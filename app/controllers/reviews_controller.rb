@@ -36,6 +36,11 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def destroy
+        @review.destroy
+        redirect_to book_path(@book)
+    end
+
     private 
         # require the name which is review, and pass through what will be permitted 
         def review_params
