@@ -11,6 +11,11 @@
 <div class="row">
     <div class="col-md-4">
         <%# REVIEWS AND RATINGS %>
+        <%# show all the reviews for the current book; Renders from review partial %>
+        <%= render @book.reviews %>
+        <div>
+            <%= link_to "Add Review", new_book_review_path(@book) %>            
+        </div>
     </div>
 </div>
 <%= link_to "Back", root_path %>
