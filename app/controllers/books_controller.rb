@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
 # define before action to run before any other methods are used
     before_action :find_book, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:new, :edit]
 
 # get all books in model and order by created at
     def index

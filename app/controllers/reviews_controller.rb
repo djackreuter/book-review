@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
     # make @book accessable 
     before_action :find_book
     before_action :find_review, only: [:edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:new, :edit]
 
     def new
         @review = Review.new
